@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>小球碰撞</title>
+		<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="http://cdn.bootcss.com/jquery/3.5.1/jquery.min.js"></script>
+		<script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<link href="https://cdn.bootcss.com/bootstrap-switch/3.3.4/css/bootstrap3/bootstrap-switch.min.css" rel="stylesheet">
+		<script src="https://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+		<script src="https://cdn.bootcss.com/bootstrap-switch/3.3.4/js/bootstrap-switch.min.js"></script>
+
+		<link rel="stylesheet" href=../static/css/ball.css>
+	</head>
+	<body style="background-color:#f8f8ff;">
+		<div>
+            <div class="spinner" id="left_run" style="display: none">
+                <div class="double-bounce1"></div>
+                <div class="double-bounce2"></div>
+                <div><span class="badge badge-pill" style="background-color: #F4A460; font-size:18px;">
+                    正在模拟中，请等待...
+                </span></div>
+            </div>
+			<div id="left">
+				<br><span class="badge badge-pill" style="background-color: #FF1493; font-size:18px;">创建初始感染人数：</span>
+				<input id="InfectorNum" type="text" style="width: 100px;" placeholder="至多100人"><br><br><br>
+				<!-- <button onclick="createBalls(1, true, true)" class="button">创建感染者</button><br> -->
+
+				<span class="badge badge-pill" style="background-color: #FF1493; font-size:18px;">创建初始人群数量：</span>
+				<input id="population" type="text" style="width: 100px;" placeholder="至多200人"><br><br><br>
+
+				<span class="badge badge-pill" style="background-color: #CC99FF; font-size:18px">开启佩戴口罩功能：</span>
+				<input type="checkbox" name="mask" unchecked class="make-switch">
+				<br><br><br>
+
+				<span class="badge badge-pill" style="background-color: #DAA520; font-size:18px">设置人员移动速度：</span>
+				<input id="people_speed" type="text" style="width: 100px;" placeholder="最高5档"><br><br><br>
+				
+				<span class="badge badge-pill" style="background-color: #A9A9A9; font-size:18px">是否开启人员聚集：</span>
+				<input type="checkbox" name="cluster" unchecked class="make-switch">
+				<br><br><br>
+
+				<span class="badge badge-pill" style="background-color: #4E6096; font-size:18px">开启医院收治地点：</span>
+				<input type="checkbox" name="status" unchecked class="make-switch">
+				<br><br><br>
+
+				<span class="badge badge-pill" style="background-color: #556B2F; font-size:18px">设置医院最大容量：</span>
+				<input id="hoscap" type="text" style="width: 100px;" placeholder="最大300床"><br><br><br>
+
+				<span class="badge badge-pill" style="background-color: #FA8072; font-size:18px">设置医院收纳速度：</span>
+				<input id="hos_speed" type="text" style="width: 100px;" placeholder="最高3档"><br><br><br>
+
+                <span class="badge badge-pill" style="background-color: #3CB371; font-size:18px">设置医院治疗速度：</span>
+				<input id="cure_speed" type="text" style="width: 100px;" placeholder="最高3档"><br><br><br>
+
+				<button type="button" class="btn btn-primary" onclick="startModel();">开始模拟</button>&emsp;&emsp;
+				<button type="button" class="btn btn-primary" onclick="window.location.reload();">清空所有</button>&emsp;&emsp;
+				<button type="button" class="btn btn-warn" onclick="manual()">使用手册</button>
+			</div>
+			<div id="wrap">
+			</div>
+			<div id="right">
+				<div id="hospital_pic">
+				</div>
+				<div id="hospital_info">
+					<h3 style="display: inline; font-weight:bold">医院容量：</h3>
+					<h3 style="display: inline; font-weight:bold" id="hospital_cap">100</h3>
+					<span class="glyphicon glyphicon-log-in" style="font-size: 20px;"></span><br><br>
+					<h3 style="display: inline; font-weight:bold">剩余容量：</h3>
+					<h3 style="display: inline; font-weight:bold" id="hospital_left">100</h3>
+					<span class="glyphicon glyphicon-object-align-left" style="font-size: 20px;"></span><br><br>
+					<h3 style="display: inline; font-weight:bold">死亡人数：</h3>
+					<h3 style="display: inline; font-weight:bold" id="hospital_die">0</h3>
+					<span class="glyphicon glyphicon-user" style="font-size: 20px;"></span><br><br>
+                    <h3 style="display: inline; font-weight:bold">累计治疗：</h3>
+					<h3 style="display: inline; font-weight:bold" id="hos_cure">0</h3>
+                    <span class="glyphicon glyphicon-user" style="font-size: 20px;"></span><br><br>
+
+				</div>
+            </div></div>
+            
+	</body>
+	<script type="text/javascript" src="../static/js/generate_ball.js"></script>
+	<script type="text/javascript" src="../static/js/start.js"></script>
+	<script type="text/javascript" src="../static/js/hospital.js"></script>
+	<script type="text/javascript">
+		var hos_state = false; //是否打开医院
+		var hos_speed = 1; //初始人员移动速度
+		var cluster_factor = 3; //是否聚集
+		var infectNum = 1; //初始感染人数
+		var peopleNum = 100; //初始未感染人口
+		var hoscap = 100; //医院容量
+        var isMask = false; //是否待口罩
+        var peopleSpeed = 0;
+        var cureSpeed = 0; //设置医院治疗速度
+
+
+		$('[name="status"]').bootstrapSwitch({ //初始化按钮
+			onText: "Yes",
+			offText: "No",
+			onColor: "success",
+			offColor: "info",
+			size: "small",
+			//每太搞懂这里的运行逻辑，貌似开关变化之后会一直执行...而不是触发一下，执行一次
+			onSwitchChange: function(event, state) {
+				if (state == true) {
+					/*hos_speed = parseInt(document.getElementById("hos_speed").value);
+					if(!(hos_speed > 0)) {
+						alert("请输入正确的医院收容速度");
+						state = false;
+						return;
+					}
+					startHospital(true, hos_speed);
+					*/
+                    hos_state = true
+				} else {
+					hos_state = false
+				}
+			}
+		});
+		$('[name="mask"]').bootstrapSwitch({ //初始化按钮
+			onText: "Yes",
+			offText: "No",
+			onColor: "success",
+			offColor: "info",
+			size: "small",
+			onSwitchChange: function(event, state) {
+				if (state == true) {
+					isMask = true;
+				} else {
+					isMask = false;
+				}
+			}
+		});
+		
+		$('[name="cluster"]').bootstrapSwitch({ //初始化按钮
+			onText: "Yes",
+			offText: "No",
+			onColor: "success",
+			offColor: "info",
+			size: "small",
+			onSwitchChange: function(event, state) {
+				if (state == true) {
+					cluster_factor = 2;
+				} else {
+					cluster_factor = 3;
+				}
+			}
+		});
+		
+		//等待函数
+		function sleep (time) {
+		  return new Promise((resolve) => setTimeout(resolve, time));
+		}
+
+		function manual() {
+		    alert("文本框输入对应参数，点击【开始模拟】进行模拟，模拟成功返回相应docx的报告")
+        }
+
+		function startModel() {
+			hos_speed = parseInt(document.getElementById("hos_speed").value);
+			if(hos_speed >= 3)
+				hos_speed = 1000;
+			else if(hos_speed == 1)
+				hos_speed = 3000;
+			else if(hos_speed == 2)
+			    hos_speed = 2000;
+
+			cureSpeed = parseInt(document.getElementById("cureSpeed"));
+			if(cureSpeed >= 3)
+			    cureSpeed = 1000;
+			else if(cureSpeed == 2)
+			    curespeed = 2000;
+			else if(cureSpeed == 1)
+			    cureSpeed = 3000;
+		
+			infectNum = parseInt(document.getElementById("InfectorNum").value);
+			peopleNum = parseInt(document.getElementById("population").value);
+			peopleSpeed = parseInt(document.getElementById("people_speed").value);
+			hoscap = parseInt(document.getElementById("hoscap").value);
+
+			start(infectNum, peopleNum, peopleSpeed, hoscap);
+			
+			sleep(3000).then(() => {
+			    document.getElementById("left").style.display="none";
+		        document.getElementById("left_run").style.display="";
+			    if(hos_state == true){
+					if(!(hos_speed > 0) && !(cureSpeed > 0)) {
+						alert("请输入正确的医院收容速度或治疗速度");
+						return;
+					}
+					startHospital(true, hos_speed);
+					startCure(true, cureSpeed);
+                } else {
+			        startHospital(false);
+			        startCure(false);
+                }
+			})
+		}
+	</script>
+</html>
