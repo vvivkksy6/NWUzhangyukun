@@ -43,43 +43,43 @@
 
      运行之后，会返回一份报表，我们主要观察分析感染人数、潜伏人数，死亡人数随着时间的变化。
 
-    
+​    
 
   * 主要代码
 
     * 小球随机移动函数，小球碰到边界后改变移动方向，确保在框内移动。移动的单位为像素点，可以自主设置速度，一共5档。
 
-    ![](C:\Users\Lenovo\Desktop\50d77bbe0fb79fb441f1387fc03b64a.png)
+    ![](https://github.com/Shawtykk/NWUzhangyukun/raw/main/pic/50d77bbe0fb79fb441f1387fc03b64a.png)
 
     * 设置感染后潜伏日期为14天，若处于潜伏期且没有到医院进行救治，则小球移动14天后进入感染期，颜色变为红色。
 
-    ![](C:\Users\Lenovo\Desktop\微信图片_20210303175452.png)
+    ![](https://github.com/Shawtykk/NWUzhangyukun/blob/main/pic/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210303175452.png)
 
     * 假设感染的人不救医导致死亡的概率为0.1%，小球变为棕色表示死亡；不救医而痊愈的概率为0.3%，小球变为黄色表示痊愈；
 
-    ![](C:\Users\Lenovo\Desktop\微信图片_20210303175817.png)
+    ![](https://github.com/Shawtykk/NWUzhangyukun/blob/main/pic/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210303175817.png)
 
     * 小球碰撞函数，遍历除自己之外的所有小球的位置坐标，判断小之间的位置关系。若发生碰撞，根据当前小球与被撞小球的相对方向，改变当前小球的移动方向
 
-    ![](C:\Users\Lenovo\Desktop\微信图片_20210303181037.png)
+    ![](https://github.com/Shawtykk/NWUzhangyukun/blob/main/pic/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210303181037.png)
 
     * 传染函数，若发生碰撞或距离太近时，根据不同情况（是否带口罩，是否有抗体，处于潜伏期还是感染期）设置不同的感染几率，若小球被感染，则变为蓝色。
 
-    ![](C:\Users\Lenovo\Desktop\微信图片_20210303182811.png)
+    ![](https://github.com/Shawtykk/NWUzhangyukun/blob/main/pic/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210303182811.png)
 
     * 医院收纳函数，医院收纳速度共有3档，可以前端自行设置挡位，默认为2档（中等速度）。在1档（最慢速度）下，每3秒收纳5个病人；在2档下，每2秒收纳5个病人；在3档（最快速度）下，每1秒收纳5个病人。
 
-    ![](C:\Users\Lenovo\Desktop\微信图片_20210303184004.png)
+    ![](https://github.com/Shawtykk/NWUzhangyukun/blob/main/pic/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210303184004.png)
 
     * 医院救治函数，医院救治速度共有3档，可以前端自行设置挡位，默认为2档（中等速度）。假设病人被治愈的几率为20%，治愈后小球变为黄色，代表此时已康复拥有抗体。
 
-    ![](C:\Users\Lenovo\Desktop\微信图片_20210303184800.png)
+    ![](https://github.com/Shawtykk/NWUzhangyukun/blob/main/pic/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210303184800.png)
 
     * 对前端输入的数据（医院容量，初始感染人数，人群移动速度等）做出规定，如果输入的数字超出规定最大值，纠正或提示。
 
-    ![](C:\Users\Lenovo\Desktop\微信图片_20210303185209.png)
+    ![](https://github.com/Shawtykk/NWUzhangyukun/blob/main/pic/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210303185209.png)
 
-    ![](C:\Users\Lenovo\Desktop\微信图片_20210303185218.png)
+    ![](https://github.com/Shawtykk/NWUzhangyukun/blob/main/pic/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210303185218.png)
 
     
 
@@ -91,60 +91,104 @@
 
   在其他参数不变的情况下，观察是否佩戴口罩对病情传播的影响，参数设置如下：
 
-  ![](C:\Users\Lenovo\Desktop\图片1.png)
+  ![](https://github.com/Shawtykk/NWUzhangyukun/blob/main/pic/%E5%9B%BE%E7%89%871.png)
 
-  * 佩戴口罩，感染率为16.7%，死亡率为0%
+  * 佩戴口罩时，感染率为16.7%，死亡率为0%
 
-  ![](C:\Users\Lenovo\Desktop\微信图片_20210303203631.png)
+  ![](https://github.com/Shawtykk/NWUzhangyukun/blob/main/pic/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210303203631.png)
 
-  ![](C:\Users\Lenovo\Desktop\微信图片_20210303202205.png)
+  ![](https://github.com/Shawtykk/NWUzhangyukun/blob/main/pic/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210303202205.png)
 
      可视化展示：
 
   <video id="video" controls="" preload="none">
-      <source id="mp4" src="C:\Users\Lenovo/有口罩.mp4" type="video/mp4">
+      <source id="mp4" src="https://github.com/Shawtykk/NWUzhangyukun/blob/main/pic/%E6%9C%89%E5%8F%A3%E7%BD%A9.mp4" type="video/mp4">
   </video>
+
 
   * 不佩戴口罩，感染率为34.9%，死亡率为4.3%。
 
-  ![](C:\Users\Lenovo\Desktop\微信图片_20210303204024.png)
+  ![](https://github.com/Shawtykk/NWUzhangyukun/blob/main/pic/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210303204024.png)
 
     可视化展示：
 
   <video id="video" controls="" preload="none">
-      <source id="mp4" src="C:\Users\Lenovo/无口罩.mp4" type="video/mp4">
+      <source id="mp4" src="https://github.com/Shawtykk/NWUzhangyukun/blob/main/pic/%E6%97%A0%E5%8F%A3%E7%BD%A9.mp4" type="video/mp4">
   </video>
 
 * 限制出行
 
    在其他参数不变的情况下，观察是否限制出行对病情传播的影响，参数设置如下：
 
-  ![](C:\Users\Lenovo\Desktop\微信图片_20210303210146.png)
+  ![](https://github.com/Shawtykk/NWUzhangyukun/blob/main/pic/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210303210146.png)
 
   * 设置人员移动速度为5档（最快），开启人员聚集，感染率为46.1%%，死亡率为18.5%。
 
-  ![](C:\Users\Lenovo\Desktop\微信图片_20210303205955.png)
+  ![](https://github.com/Shawtykk/NWUzhangyukun/blob/main/pic/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210303205955.png)
 
     可视化截图（小球为棕绿色代表死亡，小球为黄色代表感染后康复）：
 
-  ![](C:\Users\Lenovo\Desktop\微信图片_20210303210001.png)
+  ![](https://github.com/Shawtykk/NWUzhangyukun/blob/main/pic/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210303210001.png)
 
   * 设置人员移动速度为1档（最慢），关闭人员聚集，感染率为15.4%，死亡人数为17，死亡率为6%。
 
-​      ![](C:\Users\Lenovo\Desktop\微信图片_20210303211109.png)
+​      ![](https://github.com/Shawtykk/NWUzhangyukun/blob/main/pic/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210303211109.png)
 
 ​         模拟过程截图：（黑色小球表示健康人，蓝色小球表示处于潜伏期）
 
-![](C:\Users\Lenovo\Desktop\微信图片_20210303211402.png)
+![](https://github.com/Shawtykk/NWUzhangyukun/blob/main/pic/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210303211402.png)
 
-* 单独医院
+* 医院收纳和救治速度
+
+  在其他参数不变的情况下（假设不限制出行，开启聚集，不佩戴口罩，移动速度为5档），观察是医院医院收纳和救治速度对病情传播的影响。
+
+  * 当医院收纳速度和救治速度都为3档（最快速度）时，死亡人数为7，死亡率为6%，感染人数为41，感染率为27.3%。
+
+  ![](https://github.com/Shawtykk/NWUzhangyukun/blob/main/pic/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210303214035.png)
+
+  
+
+  * 当医院收纳速度和救治速度都为1档（最慢速度）医院容纳量为50时，死亡人数为28，死亡率为20.3%，感染人数为84，感染率为43.3%。
+
+  ![](https://github.com/Shawtykk/NWUzhangyukun/blob/main/pic/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210303213404.png)
+
+​      可视化模拟过程展示：
+
+<video id="video" controls="" preload="none">
+    <source id="mp4" src="https://github.com/Shawtykk/NWUzhangyukun/blob/main/pic/%E5%8C%BB%E9%99%A2%E4%B8%8D%E8%A1%8C.mp4" type="video/mp4">
+</video>
+
+
+​         
+
 * 综合
+
+  * 当医院救治速度设置为最快，容量设置为最大，并且要求佩戴口罩，限制出行时，死亡人数为2，死亡率仅为1.9%%，感染人数为3，感染率为2.8%。
+
+  ![](https://github.com/Shawtykk/NWUzhangyukun/blob/main/pic/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210303214617.png)
+
+  可视化模拟过程截图：（黑色小球代表健康的人）
+
+  ![](https://github.com/Shawtykk/NWUzhangyukun/blob/main/pic/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210303214827.png)
+
+  * 当医院救治速度设置为最慢，容量很小，并且不佩戴口罩，不限制出行的情况下，死亡率高达22.5%，感染率高达41.8%。
+
+  ![](https://github.com/Shawtykk/NWUzhangyukun/blob/main/pic/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210303215853.png)
 
 ### 结果分析
 
-* 口罩
-* 限制出行
-* 医院
+* 佩戴口罩对疫情传播的影响
+
+​       由上述结果来看，新冠疫情当中，人们通过戴口罩降低传染概率这一举措是非常有效的。在医院救治较慢和不限制出行的条件下 ，佩戴口罩时，感染率约为16.7%，不佩戴口罩，感染率可达34.9%，死亡率可达4.3%，死亡率和感染率明显上升，感染率为不佩戴口罩时的一倍左右。
+
+* 限制出行对疫情传播的影响
+
+​      由上述结果可知，限制出行是三种方法中最有效的控制疫情传播的方法， 如果不降低人群流动的速度，允许人群聚集，大大增大了病毒传播的机会，感染率可高达到46.1%，死亡率也可高达为18.5%。而在限制出行和禁止人群聚集的条件下，感染率为15.4%，死亡率为6%。在可视化模拟过程中也可以直观地看到两种情况的差别，前者在规定区域内存在大面积的绿色小球（表示死亡），后者在规定区域内多数为黑色小球（表示健康的人），说明在防控疫情的任何阶段，都要特别注意人群的流动，如果不对出行进行限制，疫情很可能会在短期时间内快速传播，造成严重后果。
+
+* 医院收纳速度，救治速度，容量对疫情传播的影响
+
+​      医院收纳速度，救治速度，容量对于疫情传播也有很大的影响，医院收纳救治速度很低，容量较小，死亡率可达20.3%，感染率可高达43.3%，在医院收纳救治速度很快且容量充足的情况下，死亡率1.9%左右，感染率为2.8%左右。可以看出，医院的防疫水平在防疫中起着重要作用，如果做到有病快速就医，医院设备先进，治疗水平较高，那么可以大幅度降低感染率和死亡率。
+
 * 综合
 
 ### 防控建议
