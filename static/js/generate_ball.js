@@ -306,7 +306,7 @@ function crash(ballObj) {
 						//小球对象在被撞小球的正上方
 						ballObj.yflag = !orientation;
 					}
-					//如果碰撞一次，有30%的几率被感染：
+					//感染几率
 					var infect_factor = Math.floor(Math.random() * 100);
 					//在潜伏期之内感染概率5%，被感染之后会被染成红色球体
 					if (balls[i].isDie == false && balls[i].isHos == false && ballObj.isCure == false) {
@@ -342,9 +342,9 @@ function crash(ballObj) {
 								}
 							}
 
-							//非潜伏期感染率30%
+							//感染期感染率30%
 						} else if (ballObj.isLatent == false && balls[i].isInfect == true) {
-							if (isMask == true) {
+							if (isMask == false) {
 								//无抗体30%概率得病无口罩
 								if (infect_factor > 0 && infect_factor <= 30 && ballObj.isImm == false) {
 									ballObj.style.backgroundColor = "#4169E1";
@@ -358,7 +358,7 @@ function crash(ballObj) {
 									ballObj.isImm = false;
 								}
 							}
-							if (isMask == false) {
+							if (isMask == true) {
 								//无抗体15%概率得病有口罩
 								if (infect_factor > 0 && infect_factor <= 15 && ballObj.isImm == false) {
 									ballObj.style.backgroundColor = "#4169E1";
