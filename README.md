@@ -171,9 +171,9 @@
 
   ![](https://github.com/Shawtykk/NWUzhangyukun/blob/main/pic/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210303213404.png)
 
-​      可视化模拟过程展示：
+​      可视化模拟过程展示（医院收纳速度和救治速度都为1档（最慢速度），医院容纳量为200时，黄色小球表示康复且有抗体，红色小球表示处于感染期，棕色小球表示死亡）：
 
-<img src="https://github.com/Shawtykk/NWUzhangyukun/blob/main/pic/%E6%97%A0%E5%8F%A3%E7%BD%A9%2000_00_00-00_00_30.gif" style="zoom: 70%" />
+<img src="https://github.com/Shawtykk/NWUzhangyukun/blob/main/pic/%E5%8C%BB%E9%99%A2%E9%80%9F%E5%BA%A6%E6%85%A2%2000_00_00-00_00_30.gif" style="zoom: 70%" />
 
 
 
