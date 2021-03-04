@@ -113,7 +113,7 @@
 
      可视化展示：
 
-  <img src="https://github.com/Shawtykk/NWUzhangyukun/blob/main/pic/%E6%97%A0%E5%8F%A3%E7%BD%A9%2000_00_00-00_00_30.gif" style="zoom: 70%" />
+  <img src="https://github.com/Shawtykk/NWUzhangyukun/blob/main/pic/%E6%9C%89%E5%8F%A3%E7%BD%A9%2000_00_00-00_00_30.gif" style="zoom: 70%" />
   
   
   ​					
