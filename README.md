@@ -113,7 +113,17 @@
 
      可视化展示：
 
-  <video id="video" controls=""src="https://github.com/Shawtykk/NWUzhangyukun/blob/main/pic/%E6%9C%89%E5%8F%A3%E7%BD%A9.mp4" preload="none">
+  		<iframe height=498 width=510 src="https://github.com/Shawtykk/NWUzhangyukun/blob/main/pic/%E6%9C%89%E5%8F%A3%E7%BD%A9.mp4">
+  
+  
+  ​					
+  ​				
+  ​				
+  ​						
+  ​				
+  ​			
+  ​		
+  ​		
 
 
   * 不佩戴口罩，感染率为34.9%，死亡率为4.3%。
