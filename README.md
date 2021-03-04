@@ -113,7 +113,7 @@
 
      可视化展示：
 
-  		<iframe height=498 width=510 src="https://github.com/Shawtykk/NWUzhangyukun/blob/main/pic/%E6%9C%89%E5%8F%A3%E7%BD%A9.mp4">
+  <img src="https://github.com/Shawtykk/NWUzhangyukun/blob/main/pic/%E6%97%A0%E5%8F%A3%E7%BD%A9%2000_00_00-00_00_30.gif" style="zoom: 70%" />
   
   
   ​					
@@ -132,9 +132,8 @@
 
     可视化展示：
 
-  <video id="video" controls="" preload="none">
-      <source id="mp4" src="https://github.com/Shawtykk/NWUzhangyukun/blob/main/pic/%E6%97%A0%E5%8F%A3%E7%BD%A9.mp4" type="video/mp4">
-  </video>
+  <img src="https://github.com/Shawtykk/NWUzhangyukun/blob/main/pic/%E6%97%A0%E5%8F%A3%E7%BD%A9%2000_00_00-00_00_30.gif" style="zoom: 70%" />
+
 
 * 限制出行
 
@@ -174,9 +173,7 @@
 
 ​      可视化模拟过程展示：
 
-<video id="video" controls="" preload="none">
-    <source id="mp4" src="https://github.com/Shawtykk/NWUzhangyukun/raw/main/pic/%E5%8C%BB%E9%99%A2%E4%B8%8D%E8%A1%8C.mp4" type="video/mp4">
-</video>
+<img src="https://github.com/Shawtykk/NWUzhangyukun/blob/main/pic/%E6%97%A0%E5%8F%A3%E7%BD%A9%2000_00_00-00_00_30.gif" style="zoom: 70%" />
 
 
 
