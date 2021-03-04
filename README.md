@@ -165,8 +165,9 @@
 ​      可视化模拟过程展示：
 
 <video id="video" controls="" preload="none">
-    <source id="mp4" src="https://github.com/Shawtykk/NWUzhangyukun/blob/main/pic/%E5%8C%BB%E9%99%A2%E4%B8%8D%E8%A1%8C.mp4" type="video/mp4">
+    <source id="mp4" src="https://github.com/Shawtykk/NWUzhangyukun/raw/main/pic/%E5%8C%BB%E9%99%A2%E4%B8%8D%E8%A1%8C.mp4" type="video/mp4">
 </video>
+
 
 
 ​         
