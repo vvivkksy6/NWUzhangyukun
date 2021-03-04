@@ -111,7 +111,7 @@
 
   ![](https://github.com/Shawtykk/NWUzhangyukun/blob/main/pic/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210303202205.png)
 
-     可视化展示：
+     可视化展示(黑色小球表示健康，蓝色小球表示处于潜伏期，红色小球表示处于感染期）：
 
   <img src="https://github.com/Shawtykk/NWUzhangyukun/blob/main/pic/%E6%9C%89%E5%8F%A3%E7%BD%A9%2000_00_00-00_00_30.gif" style="zoom: 70%" />
   
@@ -130,7 +130,7 @@
 
   ![](https://github.com/Shawtykk/NWUzhangyukun/blob/main/pic/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210303204024.png)
 
-    可视化展示：
+ 可视化展示（棕色小球表示死亡，黄色小球表示康复且有抗体，黑色小球表示健康，蓝色小球表示处于潜伏期，红色小球表示处于感染期）：
 
   <img src="https://github.com/Shawtykk/NWUzhangyukun/blob/main/pic/%E6%97%A0%E5%8F%A3%E7%BD%A9%2000_00_00-00_00_30.gif" style="zoom: 70%" />
 
